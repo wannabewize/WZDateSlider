@@ -67,7 +67,6 @@ public struct WZSingleDateSlider: View {
             }
             .onAppear {
                 widthPerValue = (geometry.size.width - thumbSize) / CGFloat(distance)
-                
             }
             .onChange(of: value) { newValue in
                 guard let newDate = minDate.addMonths(value) else {
@@ -77,6 +76,16 @@ public struct WZSingleDateSlider: View {
             }
             .onChange(of: date) { newValue in
                 value = newValue.monthDistance(other: minDate)
+            }
+            .onChange(of: minDate) { newValue in
+                distance = maxDate.monthDistance(other: newValue)
+            }
+            .onChange(of: maxDate) { newValue in
+                distance = newValue.monthDistance(other: minDate)
+            }
+            .onChange(of: distance) { newValue in
+                widthPerValue = (geometry.size.width - thumbSize) / CGFloat(newValue)
+                value = date.monthDistance(other: minDate)
             }
         }
         .frame(height: thumbSize)

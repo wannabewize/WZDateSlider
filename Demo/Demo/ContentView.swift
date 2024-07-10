@@ -39,8 +39,8 @@ extension Date {
 struct ContentView: View {
     @State var date = Date()
     
-    let minDate = Calendar.current.date(from: DateComponents(year: 2000, month: 1))!
-    let maxDate = Calendar.current.date(from: DateComponents(year: 2000, month: 12))!
+    @State var minDate = Calendar.current.date(from: DateComponents(year: 2000, month: 1))!
+    @State var maxDate = Calendar.current.date(from: DateComponents(year: 2000, month: 12))!
     
     @State var lowDate = Date()
     @State var highDate = Date()
@@ -50,6 +50,27 @@ struct ContentView: View {
     var body: some View {
 
         VStack {
+            HStack {
+                Button("<") {
+                    minDate = Calendar.current.date(byAdding: .month, value: -1, to: minDate)!
+                }
+                
+                Spacer()
+                
+                Text("Change Month (Min, Max)")
+                
+                Spacer()
+
+                Button(">") {
+                    maxDate = Calendar.current.date(byAdding: .month, value: 1, to: maxDate)!
+                }
+
+            }
+            .padding(.horizontal, 20)
+            
+            Divider()
+                .padding(.vertical, 20)
+            
             WZSingleDateSlider(date: $date, minDate: minDate, maxDate: maxDate)
             WZSingleDateSlider(date: $date, minDate: minDate, maxDate: maxDate, thumbSize: 40, thumbColor: .yellow, progressColor: .brown)
             HStack {
