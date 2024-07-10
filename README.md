@@ -27,4 +27,6 @@ WZDoubleDateSlider(lowDate: $lowValue, highDate: $highValue, minDate: minDate, m
 
 ## Preview
 
-<video src='./Resources/demo.mov' />
+![watch](./Resources/demo_preview.png)
+
+<video src="https://github.com/wannabewize/WZDateSlider/blob/develop/Resources/demo.mov"></video>
