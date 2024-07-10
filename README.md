@@ -1,5 +1,6 @@
 # WZDateSlider
 
+![watch](./Resources/demo_preview.png)
 
 ## Installation
 
@@ -25,8 +26,6 @@ WZDoubleDateSlider(lowDate: $lowValue, highDate: $highValue, minDate: minDate, m
 WZDoubleDateSlider(lowDate: $lowValue, highDate: $highValue, minDate: minDate, maxDate: maxDate, thumbSize: 50, thumbColor: .green, progressColor: .black)
 ```
 
-## Preview
+## Demo
 
-![watch](./Resources/demo_preview.png)
-
-<video src="https://github.com/wannabewize/WZDateSlider/blob/develop/Resources/demo.mov"></video>
+<video src="https://github.com/wannabewize/WZDateSlider/assets/817052/a4db75c5-e0bb-4fd3-ab70-2676849d828b"></video>
