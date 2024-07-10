@@ -50,7 +50,6 @@ struct ContentView: View {
     var body: some View {
 
         VStack {
-            Slider(value: $sliderValue, in: (0.0)...(10.0), step: 1)
             WZSingleDateSlider(date: $date, minDate: minDate, maxDate: maxDate)
             WZSingleDateSlider(date: $date, minDate: minDate, maxDate: maxDate, thumbSize: 40, thumbColor: .yellow, progressColor: .brown)
             HStack {
