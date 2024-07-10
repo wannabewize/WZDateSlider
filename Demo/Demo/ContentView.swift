@@ -42,8 +42,8 @@ struct ContentView: View {
     let minDate = Calendar.current.date(from: DateComponents(year: 2000, month: 1))!
     let maxDate = Calendar.current.date(from: DateComponents(year: 2000, month: 12))!
     
-    @State var lowValue = Date()
-    @State var highValue = Date()
+    @State var lowDate = Date()
+    @State var highDate = Date()
     
     @State var sliderValue: Float = 5
     
@@ -60,12 +60,12 @@ struct ContentView: View {
                 Text("\(maxDate.toYYYYMM)")
             }
             
-            WZDoubleDateSlider(lowDate: $lowValue, highDate: $highValue, minDate: minDate, maxDate: maxDate)
-            WZDoubleDateSlider(lowDate: $lowValue, highDate: $highValue, minDate: minDate, maxDate: maxDate, thumbSize: 50, thumbColor: .green, progressColor: .black)
+            WZDoubleDateSlider(lowDate: $lowDate, highDate: $highDate, minDate: minDate, maxDate: maxDate)
+            WZDoubleDateSlider(lowDate: $lowDate, highDate: $highDate, minDate: minDate, maxDate: maxDate, thumbSize: 50, thumbColor: .green, progressColor: .black)
             HStack {
                 Text("\(minDate.toYYYYMM)")
                 Spacer()
-                Text("\(lowValue.toYYYYMM) - \(highValue.toYYYYMM)")
+                Text("\(lowDate.toYYYYMM) - \(highDate.toYYYYMM)")
                 Spacer()
                 Text("\(maxDate.toYYYYMM)")
             }
