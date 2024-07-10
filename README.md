@@ -5,7 +5,8 @@
 ## Installation
 
 ### SPM
-https://github.com/wannabewize/WZDateSlider.git, Up to Major: 1.0
+Location: https://github.com/wannabewize/WZDateSlider.git
+Up to Next Major Version: 1.0.1
 
 ## Sample Code
 
