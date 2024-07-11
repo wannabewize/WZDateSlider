@@ -1,6 +1,5 @@
 //
-//  DateSlider.swift
-//  DateSlider
+//  WZSingleDateSlider.swift
 //
 
 import SwiftUI
