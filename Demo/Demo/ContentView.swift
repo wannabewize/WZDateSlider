@@ -37,10 +37,10 @@ extension Date {
 }
 
 struct ContentView: View {
-    @State var date = Date()
+    @State var date = Calendar.current.date(from: DateComponents(year: 2000, month: 6))!
     
-    let minDate = Calendar.current.date(from: DateComponents(year: 2000, month: 1))!
-    let maxDate = Calendar.current.date(from: DateComponents(year: 2000, month: 12))!
+    @State var minDate = Calendar.current.date(from: DateComponents(year: 2000, month: 1))!
+    @State var maxDate = Calendar.current.date(from: DateComponents(year: 2000, month: 12))!
     
     @State var lowDate = Date()
     @State var highDate = Date()
@@ -48,8 +48,34 @@ struct ContentView: View {
     @State var sliderValue: Float = 5
     
     var body: some View {
-
         VStack {
+            HStack(spacing: 20) {
+                Button("<<") {
+                    minDate = Calendar.current.date(byAdding: .month, value: -5, to: minDate)!
+                }
+
+                Button("<") {
+                    minDate = Calendar.current.date(byAdding: .month, value: -1, to: minDate)!
+                }
+                
+                Spacer()
+                
+                Text("Change Month")
+                
+                Spacer()
+
+                Button(">") {
+                    maxDate = Calendar.current.date(byAdding: .month, value: 1, to: maxDate)!
+                }
+                Button(">>") {
+                    maxDate = Calendar.current.date(byAdding: .month, value: 5, to: maxDate)!
+                }
+            }
+            .padding(.horizontal, 10)
+            
+            Divider()
+                .padding(.vertical, 20)
+            
             WZSingleDateSlider(date: $date, minDate: minDate, maxDate: maxDate)
             WZSingleDateSlider(date: $date, minDate: minDate, maxDate: maxDate, thumbSize: 40, thumbColor: .yellow, progressColor: .brown)
             HStack {

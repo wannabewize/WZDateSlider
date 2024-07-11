@@ -1,6 +1,5 @@
 //
-//  DoubleDateSlider.swift
-//  SwiftDateSlider
+//  WZDoubleDateSlider.swift
 //
 
 import SwiftUI
@@ -149,6 +148,17 @@ public struct WZDoubleDateSlider: View {
             }
             .onChange(of: highDate) { newValue in
                 highValue = newValue.monthDistance(other: minDate)
+            }
+            .onChange(of: minDate) { newValue in
+                distance = maxDate.monthDistance(other: newValue)
+            }
+            .onChange(of: maxDate) { newValue in
+                distance = newValue.monthDistance(other: minDate)
+            }
+            .onChange(of: distance) { newValue in
+                widthPerValue = (geometry.size.width - thumbSize) / CGFloat(newValue)
+                lowValue = lowDate.monthDistance(other: minDate)
+                highValue = highDate.monthDistance(other: minDate)
             }
         }
         .frame(height: thumbSize)
