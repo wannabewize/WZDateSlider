@@ -50,23 +50,29 @@ struct ContentView: View {
     var body: some View {
 
         VStack {
-            HStack {
+            HStack(spacing: 20) {
+                Button("<<") {
+                    minDate = Calendar.current.date(byAdding: .month, value: -5, to: minDate)!
+                }
+
                 Button("<") {
                     minDate = Calendar.current.date(byAdding: .month, value: -1, to: minDate)!
                 }
                 
                 Spacer()
                 
-                Text("Change Month (Min, Max)")
+                Text("Change Month")
                 
                 Spacer()
 
                 Button(">") {
                     maxDate = Calendar.current.date(byAdding: .month, value: 1, to: maxDate)!
                 }
-
+                Button(">>") {
+                    maxDate = Calendar.current.date(byAdding: .month, value: 5, to: maxDate)!
+                }
             }
-            .padding(.horizontal, 20)
+            .padding(.horizontal, 10)
             
             Divider()
                 .padding(.vertical, 20)
