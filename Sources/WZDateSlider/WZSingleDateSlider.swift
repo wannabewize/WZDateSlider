@@ -78,17 +78,14 @@ public struct WZSingleDateSlider: View {
                 value = newValue.monthDistance(other: minDate)
             }
             .onChange(of: minDate) { newValue in
-                let newDistance = maxDate.monthDistance(other: newValue)
-                distance = newDistance
+                distance = maxDate.monthDistance(other: newValue)
             }
             .onChange(of: maxDate) { newValue in
                 distance = newValue.monthDistance(other: minDate)
             }
             .onChange(of: distance) { newValue in
                 widthPerValue = (geometry.size.width - thumbSize) / CGFloat(newValue)
-                let offset = date.monthDistance(other: minDate)
-                print("distance changed: from", distance, "new:", newValue, "newOffset:", offset, "date:\(date), minDate:\(minDate)")
-                value = offset
+                value = date.monthDistance(other: minDate)
             }
         }
         .frame(height: thumbSize)

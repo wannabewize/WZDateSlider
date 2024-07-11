@@ -37,7 +37,7 @@ extension Date {
 }
 
 struct ContentView: View {
-    @State var date = Date()
+    @State var date = Calendar.current.date(from: DateComponents(year: 2000, month: 6))!
     
     @State var minDate = Calendar.current.date(from: DateComponents(year: 2000, month: 1))!
     @State var maxDate = Calendar.current.date(from: DateComponents(year: 2000, month: 12))!
@@ -48,7 +48,6 @@ struct ContentView: View {
     @State var sliderValue: Float = 5
     
     var body: some View {
-
         VStack {
             HStack(spacing: 20) {
                 Button("<<") {
